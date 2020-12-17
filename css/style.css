@@ -68,7 +68,8 @@ header#hd{ padding: 15px 0; position: relative; }
 #gnb:hover .d2,
 #gnb:hover + .back{ height: 100px; }
 /*마우스가 올라간 대메뉴 li 속 대메뉴 .d1의 색상을 처리해주어라.*/
-#gnb > li:hover .d1{ color: #009688; }
+#gnb > li:hover .d1,
+#gnb .d2 a:hover{ color: #009688; }
 
 /*애니메이션 불가 -> display; keyframes; -> 수치가 없는 것들, auto인 것들*/
 /*애니메이션 overflow:hidden; transition: 0.5s; */
