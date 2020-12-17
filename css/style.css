@@ -44,13 +44,16 @@ header#hd{ padding: 15px 0; }
    /* background: yellow; */
  }
 #gnb .d2{
-
   background-color: black; top: calc(100% + 15px);
   left: 15px; padding: 0 15px; width: 100px;
   height: 0; transition: 0.5s; overflow: hidden;
   }
 #gnb .d2 a{ font-size: 0.9em; line-height: 1.5; color: white;
             }
+/* li는 건들지 말고 d2의 가상선택자로 위에 공간 띄우기
+( 반응형을 생각해서 li는 건들지 않는 것이 좋다..!! ) */
+#gnb .d2:before{ content: ""; display: block; height: 15px; }
+
 #gnb li:nth-child(1) .d2{ left: 30px; }
 #gnb li:nth-child(4) .d2{ width: 70px; }
 
@@ -58,7 +61,8 @@ header#hd{ padding: 15px 0; }
 #gnb > li:hover .d2{ height: 120px;}
 /*마우스가 올라간 대메뉴 li 속 대메뉴 .d1의 색상을 처리해주어라.*/
 #gnb > li:hover .d1{ color: #009688; }
-/*애니메이션 불가 -> display ; 키프레임 ; -> 수치가 없는 것들*/
+
+/*애니메이션 불가 -> display; keyframes; -> 수치가 없는 것들, auto인 것들*/
 /*애니메이션 overflow:hidden; transition: 0.5s; */
 section#main{}
 
