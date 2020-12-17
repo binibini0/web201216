@@ -32,7 +32,11 @@ img{ border: none; }
 .red{ border-bottom: red 1px solid !important; }
 
 /*레이아웃*/
-header#hd{ padding: 15px 0; }
+header#hd{ padding: 15px 0; position: relative; }
+
+.back{ height: 0; background: rgba(0,0,0,.6); position: absolute;
+        width: 100%; top: 100%; left: 0;
+      transition: 0.5s; }
 /*프로 -> 사진에 약간의 공백이 생겨서 없애려고 */
 #hd a, #hd img{ display: block; }
 #gnb > li{
@@ -40,25 +44,29 @@ header#hd{ padding: 15px 0; }
   height: 46px; }
 #gnb .d1{
   font-weight: bold; font-size: 18px; line-height: 46px;
-  padding-left: 2em; padding-bottom: 15px;
+  padding:0 1em 15px;
    /* background: yellow; */
  }
 #gnb .d2{
-  background-color: black; top: calc(100% + 15px);
-  left: 15px; padding: 0 15px; width: 100px;
+  background-color: rgba(0,0,0,.8); top: calc(100% + 15px);
+  left: 2px; padding: 0 15px; width: 100px;
   height: 0; transition: 0.5s; overflow: hidden;
-  }
+  z-index: 100; }
 #gnb .d2 a{ font-size: 0.9em; line-height: 1.5; color: white;
             }
 /* li는 건들지 말고 d2의 가상선택자로 위에 공간 띄우기
 ( 반응형을 생각해서 li는 건들지 않는 것이 좋다..!! ) */
 #gnb .d2:before{ content: ""; display: block; height: 15px; }
 
-#gnb li:nth-child(1) .d2{ left: 30px; }
+#gnb li:nth-child(1) .d2{ left: 10px; }
+#gnb li:nth-child(3) .d2{ left: 5px; }
 #gnb li:nth-child(4) .d2{ width: 70px; }
 
 /*마우스가 올라간 대메뉴 li 속 소메뉴 .d2의 높이가 120이 되어라.*/
-#gnb > li:hover .d2{ height: 120px;}
+/* #gnb > li:hover .d2{ height: 120px;} */
+/*전체 소메뉴 노출*/
+#gnb:hover .d2,
+#gnb:hover + .back{ height: 100px; }
 /*마우스가 올라간 대메뉴 li 속 대메뉴 .d1의 색상을 처리해주어라.*/
 #gnb > li:hover .d1{ color: #009688; }
 
